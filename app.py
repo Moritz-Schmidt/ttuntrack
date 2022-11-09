@@ -4,7 +4,6 @@ from urllib3.util import parse_url
 import requests
 import uvicorn
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import HttpUrl
 
 app = FastAPI()
 
@@ -25,10 +24,14 @@ def untrack_tiktok(url):
     r = requests.head(parsed_url.url) 
     u = parse_url(r.headers["Location"])
     return u.scheme + "://" + u.host + u.path
+    # TODO: better error handling
+    # TODO: better URL parsing (e.g. addig https:// if not present)
+
 
 @app.post("/tt-untrack-form/") 
 async def tt_untrack_form(url: str = Form()):
     return untrack_tiktok(url)
+    # TODO: make this return a HTML page with the untracked URL
 
 @app.post("/tt-untrack/")
 async def tt_untrack(url: str = Body(embed=True)):

@@ -31,10 +31,14 @@ Please use the API responsibly. If you want to use it more often, please host a 
 
 - adjust the docker-compose.yml file to your needs (e.g. remove the traefik labels, add port mapping)
 - run `docker-compose up -d`
+
 or:
+
 - run `docker build -t ttuntrack .`
 - run `docker run -d -p 80:80 --name ttuntrack ttuntrack`
+
 or:
+
 - run `pip install -r requirements.txt`
 - run `python3 app.py`
 
