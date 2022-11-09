@@ -1,0 +1,21 @@
+[project]
+name = "ttuntrack"
+version = "0.1.0"
+description = "Very simple tool to untrack TikTok share links."
+authors = [
+    {name = "Moritz Schmidt", email="kontakt@moritz-a-schmidt.de"},
+]
+license = "MIT"
+requires-python = ">=3.6"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "python-multipart",
+    "urllib3",
+    "requests",
+]
+
+[project.urls]
+homepage = "https://github.com/Moritz-Schmidt/ttuntrack"
+documentation = "https://github.com/Moritz-Schmidt/ttuntrack"
+repository = "https://github.com/Moritz-Schmidt/ttuntrack"

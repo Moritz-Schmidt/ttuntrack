@@ -1,0 +1,20 @@
+version: "3"
+services:
+    ttuntrack: 
+        build: .
+        labels:
+            - "traefik.enable=true"
+            - "traefik.docker.network=t2_proxy"
+            ## HTTP Routers
+            - "traefik.http.routers.ttuntrack-rtr.entrypoints=https"
+            - "traefik.http.routers.ttuntrack-rtr.rule=Host(`tu.moroku.de`)"
+            - "traefik.http.routers.ttuntrack-rtr.tls=true"
+            ## HTTP Services
+            - "traefik.http.routers.ttuntrack-rtr.service=ttuntrack-svc"
+            - "traefik.http.services.ttuntrack-svc.loadbalancer.server.port=80"
+        networks:
+            - t2_proxy
+
+networks:
+    t2_proxy:
+        external: true
