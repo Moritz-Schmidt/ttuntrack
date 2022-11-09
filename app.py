@@ -31,8 +31,8 @@ async def tt_untrack_form(url: str = Form()):
     return untrack_tiktok(url)
 
 @app.post("/tt-untrack/")
-async def tt_untrack(url: str = Body()):
-    return {"url": untrack_tiktok(url)}
+async def tt_untrack(url: str = Body(embed=True)):
+    return untrack_tiktok(url)
 
 
 

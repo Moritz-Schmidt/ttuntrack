@@ -14,22 +14,22 @@ a simple tool to remove the tracking information from a TikTok share URL and ret
 - copy the new URL
 
 or use the API:
-    
-    ```bash
-    curl -X POST -d '{"url": "https://vm.tiktok.com/ABC2D3EFG"' https://tu.moroku.de/tt-untrack
-    ```
-    
-    ```json
-    {
-        "url": "https://www.tiktok.com/@user/video/1234567891234567891"
-    }
-    ```
+
+```bash
+curl -X POST -d '{"url": "https://vm.tiktok.com/ABC2D3EFG"' https://tu.moroku.de/tt-untrack
+```
+
+will return the untracked URL as the only thing in the response body.
+
+```text
+https://www.tiktok.com/@user/video/1234567890123456789
+```
 
 Please use the API responsibly. If you want to use it more often, please host a copy of this project yourself.
 
 ## Installation
 
-- ajust the docker-compose.yml file to your needs (e.g. remove the traefik labels, add port mapping)
+- adjust the docker-compose.yml file to your needs (e.g. remove the traefik labels, add port mapping)
 - run `docker-compose up -d`
 or:
 - run `docker build -t ttuntrack .`
